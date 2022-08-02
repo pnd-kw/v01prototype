@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+
+import 'product.dart';
 
 class PrimaryMenu extends StatelessWidget {
   const PrimaryMenu({Key? key}) : super(key: key);
@@ -16,10 +19,12 @@ class PrimaryMenu extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => const Product());
+                },
                 icon: const FaIcon(FontAwesomeIcons.plus),
               ),
-              const Text("Tambah Produk"),
+              const Text("Produk"),
             ],
           ),
           Column(
