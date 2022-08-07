@@ -20,7 +20,7 @@ class PrimaryMenu extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  Get.to(() => const Product());
+                  Get.to(() => const ProductPage());
                 },
                 icon: const FaIcon(FontAwesomeIcons.plus),
               ),
