@@ -10,7 +10,71 @@ class PrimaryMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GridView.count(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Image.asset("assets/images/image-header.jpg"),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Get.to(() => const ProductPage());
+                    },
+                    icon: const FaIcon(FontAwesomeIcons.plus),
+                  ),
+                  const Text("Produk"),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const FaIcon(FontAwesomeIcons.cashRegister),
+                  ),
+                  const Text("Transaksi"),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const FaIcon(FontAwesomeIcons.noteSticky),
+                  ),
+                  const Text("Catatan"),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const FaIcon(FontAwesomeIcons.gear),
+                  ),
+                  const Text("Pengaturan"),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+      /*body: GridView.count(
         primary: false,
         crossAxisSpacing: 10,
         crossAxisCount: 4,
@@ -58,7 +122,7 @@ class PrimaryMenu extends StatelessWidget {
             ],
           ),
         ],
-      ),
+      ),*/
     );
   }
 }
