@@ -91,8 +91,46 @@ Widget buildProduct(
         harga,
         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
       ),
+      children: [
+        buildButtons(context, product),
+      ],
     ),
   );
+}
+
+Widget buildButtons(BuildContext context, Product product) {
+  return Row(
+    children: [
+      Expanded(
+        child: TextButton.icon(
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => ProductDialog(
+                product: product,
+                onClickedDone: (nama, kode, harga) =>
+                    editProduct(product, nama, kode, harga),
+              ),
+            ),
+          ),
+          icon: const Icon(Icons.edit),
+          label: const Text('Edit'),
+        ),
+      ),
+    ],
+  );
+}
+
+void editProduct(
+  Product product,
+  String nama,
+  String kode,
+  double harga,
+) {
+  product.nama = nama;
+  product.kode = kode;
+  product.harga = harga;
+
+  product.save();
 }
 
 class ProductDialog extends StatefulWidget {
