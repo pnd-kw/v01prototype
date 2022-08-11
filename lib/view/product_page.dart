@@ -116,6 +116,13 @@ Widget buildButtons(BuildContext context, Product product) {
           label: const Text('Edit'),
         ),
       ),
+      Expanded(
+        child: TextButton.icon(
+          onPressed: () => deleteProduct(product),
+          icon: const Icon(Icons.delete),
+          label: const Text('Delete'),
+        ),
+      ),
     ],
   );
 }
@@ -131,6 +138,10 @@ void editProduct(
   product.harga = harga;
 
   product.save();
+}
+
+void deleteProduct(Product product) {
+  product.delete();
 }
 
 class ProductDialog extends StatefulWidget {
