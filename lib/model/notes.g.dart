@@ -18,19 +18,16 @@ class NotesAdapter extends TypeAdapter<Notes> {
     };
     return Notes()
       ..judul = fields[0] as String
-      ..tanggal = fields[1] as DateTime
-      ..isi = fields[2] as String;
+      ..isi = fields[1] as String;
   }
 
   @override
   void write(BinaryWriter writer, Notes obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(2)
       ..writeByte(0)
       ..write(obj.judul)
       ..writeByte(1)
-      ..write(obj.tanggal)
-      ..writeByte(2)
       ..write(obj.isi);
   }
 
