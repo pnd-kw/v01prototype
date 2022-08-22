@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-
-import 'product_page.dart';
+import 'package:v01prototype/view/notes_page.dart';
+import 'package:v01prototype/view/product_page.dart';
 
 class PrimaryMenu extends StatelessWidget {
   const PrimaryMenu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -16,11 +18,10 @@ class PrimaryMenu extends StatelessWidget {
         children: [
           Row(
             children: [
-              Expanded(
-                child: FittedBox(
-                  fit: BoxFit.fill,
-                  child: Image.asset("assets/images/image-header.jpg"),
-                ),
+              Container(
+                height: height * 0.17,
+                width: width * 1.0,
+                child: Image.asset("assets/images/image-header.jpg"),
               ),
             ],
           ),
@@ -54,7 +55,9 @@ class PrimaryMenu extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => const NotesPage());
+                    },
                     icon: const FaIcon(FontAwesomeIcons.noteSticky),
                   ),
                   const Text("Catatan"),
